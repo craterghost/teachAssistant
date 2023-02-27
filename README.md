@@ -1,68 +1,51 @@
-# AI Document Information Extraction Tool
+# Teach Assistant
 
-This AI-powered tool is designed to extract information from various document formats, including .doc and .pdf files, to create flashcards for quick and easy learning.
-Features
+Teach Assistant is an AI-powered PDF information extraction tool that automates the process of generating technical questions and their corresponding answers based on a PDF document. This tool leverages OpenAI's GPT-3 model to analyze and generate questions and answers for each chunk of text in the PDF, making it a valuable resource for researchers, educators, and professionals who need to extract important information from a PDF document.
 
-Extracts information from .doc and .pdf files using OCR technology
-Automatically creates flashcards with the extracted information
-Allows users to review and edit flashcards before finalizing them
-Provides options for customizing flashcard templates and settings
-Supports multiple languages and character sets
+The repository includes two Jupyter notebooks:
 
-## Requirements
+    - teachAssistantSinglethread.ipynb: This notebook runs the code in a single thread.
+    - teachAssistantMultithread.ipynb: This notebook uses multithreading to speed up the process.
 
-    Python 3.7 or higher
-    Pip package manager
-    Required Python libraries:
-        pytesseract
-        pillow
-        docx2txt
-        fpdf
-        nltk
+## Prerequisites
 
-## Installation
+Before running the code, you need to make sure you have the following:
 
-- Clone the repository to your local machine
+    - Python 3.x
+    - pdftotext
+    - OpenAI API key
+    - tqdm
+    - difflib
+    - concurrent.futures
 
-- Install the required Python libraries using pip:
+To install the required packages, you can use pip:
 
-```
-pip install pytesseract pillow docx2txt fpdf nltk
-```
+``` pip install pdftotext openai tqdm difflib concurrent.futures ```
 
-Download the necessary language data for NLTK:
-```
-python -m nltk.downloader punkt
-python -m nltk.downloader averaged_perceptron_tagger
-```
+## How to use
 
-Run the main.py file to start the tool:
+To use this code, follow these steps:
 
-css
+    - Set your OpenAI API key in the code. You can get your API key from the OpenAI website.
 
-    python main.py
+    - Define the similarity threshold (similarity), the number of chunks to be used (num_chunks), the number of questions per chunk (num_questions), and the number of considered signs per question (chunk_size).
 
-## Usage
+    - Load your PDF by specifying its filename.
 
-Launch the tool by running main.py
-Select the document file(s) to extract information from (supported file types include .doc and .pdf)
-Choose the flashcard template and settings (font, font size, background color, etc.)
-Review and edit the extracted information, if necessary
-Generate the flashcards and save them to a PDF file for printing or sharing
+    - Run the code.
+
+    - The output of the code will be the generated question-answer pairs.
 
 ## Limitations
 
-The accuracy of the information extraction is dependent on the quality of the document and the OCR technology used
-The tool may not work as expected for documents with complex layouts or fonts that are not recognized by the OCR engine
-The flashcard templates are limited and may not suit all users' preferences and needs
-The tool does not support other document formats beyond .doc and .pdf files
+There are a few limitations to this code that are worth mentioning:
 
-## Credits
+   - The quality of the generated questions and answers is highly dependent on the quality of the input text. If the text is poorly written or contains errors, the generated questions and answers may not be very useful.
 
-This tool was developed by Julius Pinsker using various open-source libraries and technologies, including:
+   - The OpenAI API has a limit on the number of requests that can be made per month. If you exceed this limit, you will need to pay for additional requests or wait until the next month to continue using the API.
 
-- Tesseract OCR
-- Pillow
-- docx2txt
-- FPDF
-- NLTK
+   - The code is not optimized for large PDFs. Generating questions and answers for a large PDF may take a long time and require a significant amount of memory.
+
+   - The similarity threshold (similarity) used in the code is arbitrary and may need to be adjusted depending on the specific use case.
+
+   - The code is not designed to handle password-protected PDFs. If the PDF is password-protected, you will need to remove the password before running the code.

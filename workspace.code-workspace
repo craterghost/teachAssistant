@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Study_Notes-Flashcard_maker"
+		},
+		{
+			"path": "../Python-chatGPT-API"
+		}
+	],
+	"settings": {
+		"powershell.cwd": "c:\\Users\\plasma\\Documents\\teachAssistant"
+	}
+}
